@@ -5,44 +5,76 @@
        #include <time.h>
        #define MAX_INPUT_LEN 80000
        int main() {
+       
 
 
-
-
-	
-
-
-
-
-    char input_login[20];
+						char input_login[20];
     char input_password[20];
-    char *login;
-    char *password;
-    // Set the login and password
-    login = "DragonLord";
-    password = "Slayer";
-    printf("DragonScribe_v1.1.0");
-    // Prompt user for login and password
+    char login[20] = "DragonLord";
+    char password[20] = "Slayer";
+    printf("DragonScribe_v1.1.0\n");
     printf("Enter your login: ");
     fgets(input_login, 20, stdin);
-    printf("Enter your password: ");
-    fgets(input_password, 20, stdin);
-    // Check if the login and password are correct
-    
-    
-    
-    	while (strcmp(input_login, login) != 0 || strcmp(input_password, password) != 0) {
-    printf("Incorrect login or password. Try again.\n");
-    printf("Enter your login: ");
-    fgets(input_login, 20, stdin);
+    input_login[strcspn(input_login, "\n")] = '\0';
     printf("Enter your password: ");
     fgets(input_password, 20, stdin);
     input_password[strcspn(input_password, "\n")] = '\0';
-}
-    
-    
-    
-       initscr();
+
+    // Remove leading and trailing whitespaces
+    char *ptr;
+    ptr = strtok(input_login, " ");
+    if (ptr != NULL) {
+        strcpy(input_login, ptr);
+    }
+    ptr = strtok(input_password, " ");
+    if (ptr != NULL) {
+        strcpy(input_password, ptr);
+    }
+
+    while (strcmp(input_login, login) != 0 || strcmp(input_password, password) != 0) {
+        printf("Incorrect login or password. Try again.\n");
+        printf("Enter your login: ");
+        fgets(input_login, 20, stdin);
+        input_login[strcspn(input_login, "\n")] = '\0';
+        printf("Enter your password: ");
+        fgets(input_password, 20, stdin);
+        input_password[strcspn(input_password, "\n")] = '\0';
+
+        // Remove leading and trailing whitespaces
+        ptr = strtok(input_login, " ");
+        if (ptr != NULL) {
+            strcpy(input_login, ptr);
+        }
+        ptr = strtok(input_password, " ");
+        if (ptr != NULL) {
+            strcpy(input_password, ptr);
+        }
+    }
+
+			
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	initscr();
        int rows = 10;
        int cols = 20;
        int start_row = 0;
