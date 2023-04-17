@@ -120,7 +120,7 @@
       attroff(COLOR_PAIR(3));
       //strftime(timestamp, sizeof(timestamp), "[%Y-%m-%d %H:%M:%S]", localtime(&current_time));
       attron(COLOR_PAIR(3));
-      mvprintw(2, 0, "[%02d:%02d:%02d] Log entry input: ", time_info->tm_hour, time_info->tm_min, time_info->tm_sec);
+      mvprintw(2, 0, " [%02d:%02d:%02d] Log entry input:  ", time_info->tm_hour, time_info->tm_min, time_info->tm_sec);
       attroff(COLOR_PAIR(3));
      refresh();
   
@@ -226,7 +226,7 @@
         // printf("Today's date is %s\n", buffer);
   
   
-        fprintf(fp, "[%02d:%0d:%02d]%s %s\n",time_info->tm_hour, time_info->tm_min, time_info->tm_sec ,buffer ,input);
+        fprintf(fp, "/*[%02d:%0d:%02d]--%s*/ %s\n",time_info->tm_hour, time_info->tm_min, time_info->tm_sec ,buffer ,input);
   
   
   
